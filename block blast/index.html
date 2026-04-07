@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>BLOCK BLAST — Puzzle Board Game</title>
+  <meta name="description" content="A vibrant block puzzle game. Drag and place shaped blocks on an 8x8 board, clear rows and columns, and beat your high score!"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div id="app">
+    <!-- Score bar -->
+    <div id="score-bar">
+      <div class="score-box">
+        <span class="score-label">BEST</span>
+        <span class="score-value" id="best-display">0</span>
+      </div>
+      <div class="score-box main">
+        <span class="score-label">SCORE</span>
+        <span class="score-value" id="score-display">0</span>
+      </div>
+    </div>
+
+    <!-- Combo / Streak banner -->
+    <div id="combo-banner" class="hidden"></div>
+
+    <!-- Board -->
+    <div id="board-wrap">
+      <canvas id="board-canvas"></canvas>
+    </div>
+
+    <!-- Tray -->
+    <div id="tray">
+      <div class="tray-slot" id="slot-0"><canvas class="block-canvas" id="block-0"></canvas></div>
+      <div class="tray-slot" id="slot-1"><canvas class="block-canvas" id="block-1"></canvas></div>
+      <div class="tray-slot" id="slot-2"><canvas class="block-canvas" id="block-2"></canvas></div>
+    </div>
+
+    <!-- Hints -->
+    <div id="hints-bar">
+      <button id="hint-btn" title="Hint (3 left)">💡 <span id="hint-count">3</span></button>
+    </div>
+  </div>
+
+  <!-- Floating score popup container -->
+  <div id="popups"></div>
+
+  <!-- Game Over overlay -->
+  <div id="gameover" class="hidden">
+    <div id="gameover-card">
+      <div id="gameover-title">GAME OVER</div>
+      <div id="gameover-new-best" class="hidden">⭐ NEW BEST!</div>
+      <div class="go-stat"><span>SCORE</span><strong id="go-score">0</strong></div>
+      <div class="go-stat"><span>BEST</span><strong id="go-best">0</strong></div>
+      <div class="go-stat"><span>LINES CLEARED</span><strong id="go-lines">0</strong></div>
+      <div class="go-stat"><span>BLOCKS PLACED</span><strong id="go-blocks">0</strong></div>
+      <div id="gameover-btns">
+        <button id="btn-retry">🔄 PLAY AGAIN</button>
+        <button id="btn-menu">🏠 MENU</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu overlay -->
+  <div id="menu">
+    <div id="menu-card">
+      <div id="menu-title">BLOCK<br/>BLAST</div>
+      <div id="menu-best">BEST: <span id="menu-best-val">0</span></div>
+      <button id="btn-start">▶ PLAY</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
